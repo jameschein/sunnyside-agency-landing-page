@@ -79,6 +79,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex: 1;
 }
 nav ul a {
   color: #91d4c5;
@@ -140,9 +141,13 @@ header .hero h1::after {
 }
 
 main {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat 2, 1fr;
-  grid-template-areas: "transformyourbrand transformyourbrand" "standout standout" "graphics graphics" "photography photography" "testimonials testimonials" "squares squares";
+  grid-template-columns: 100%;
+  grid-template-areas: "transformyourbrand" "standout" "graphics" "photography" "testimonials" "squarepics";
+}
+main section figure {
+  width: 100%;
 }
 main section figure img {
   width: 100%;
@@ -218,17 +223,17 @@ main section.testimonials .testimonial blockquote cite {
 main section.testimonials .testimonial blockquote cite span {
   display: block;
 }
-main section.testimonials .testimonial blockquote cite span .name {
+main section.testimonials .testimonial blockquote cite span.name {
   font-family: "Fraunces", serif;
   font-size: 1.5rem;
   color: #30363f;
 }
-main section.testimonials .testimonial blockquote cite span .job {
+main section.testimonials .testimonial blockquote cite span.job {
   color: #adb5c1;
   padding-block: 0rem;
 }
-main section.squares {
-  grid-area: squares;
+main section.squarepics {
+  grid-area: squarepics;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -237,12 +242,12 @@ main section.squares {
   background-image: none;
   gap: 0;
 }
-main section.squares .square {
+main section.squarepics .square {
   padding: 0;
   margin: 0;
   line-height: 0;
 }
-main section.squares .square img {
+main section.squarepics .square img {
   width: 100%;
   object-fit: cover;
   object-position: 50%;
@@ -264,7 +269,7 @@ footer nav .logotype {
   width: 186px;
   margin-block: 2rem 3rem;
 }
-footer nav .socials ul {
+footer nav.socials ul {
   justify-content: center;
   gap: 2rem;
   margin-block: 6rem;
@@ -304,14 +309,89 @@ footer .attribution a {
 }
 
 @media screen and (min-width: 768px) {
-  main section .testimonials {
+  header {
+    padding: 1% 3% 0;
+  }
+  header nav {
+    justify-content: space-between;
+  }
+  header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 6rem;
+    text-transform: capitalize;
+  }
+  header nav ul a {
+    background-color: transparent;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    transition: all 250ms ease-in;
+  }
+  header nav ul a:hover {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    transition: all 250ms ease-in;
+    color: #3cbeff;
+  }
+  header nav .hamburger {
+    display: none;
+  }
+  header .hero {
+    padding-block: 6rem 12rem;
+    background-image: url("../images/desktop/image-header.jpg");
+  }
+  header .hero h1::after {
+    background-size: 3%;
+  }
+  main {
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "transformyourbrand transformyourbrand" "standout standout" "graphics photography" "testimonials testimonials" "squarepics squarepics";
+  }
+  main section .brand-text,
+  main section .stand-text {
+    padding: 24%;
+  }
+  main section img {
+    display: block;
+  }
+  main section h3 {
+    font-weight: 900;
+  }
+  main section.transform-your-brand {
+    text-align: left;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-areas: "brandtext brandpic";
+  }
+  main section.transform-your-brand .brand-pic {
+    grid-area: brandpic;
+  }
+  main section.transform-your-brand .brand-text {
+    grid-area: brandtext;
+  }
+  main section.transform-your-brand h3 {
+    text-align: left;
+  }
+  main section.stand-out {
+    text-align: left;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% auto;
+  }
+  main section.stand-out h3 {
+    text-align: left;
+  }
+  main section.testimonials {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 2;
   }
-  main section .testimonials h3 {
+  main section.testimonials h3 {
     grid-column: 1/4;
   }
-  main section .squares {
+  main section.squarepics {
     grid-template-columns: repeat(4, 1fr);
   }
 }

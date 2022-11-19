@@ -1,7 +1,103 @@
 @media screen and (min-width: 768px) {
+  header {
+    padding: 1% 3% 0;
+
+    nav {
+      justify-content: space-between;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: 6rem;
+        text-transform: capitalize;
+
+        a {
+          background-color: transparent;
+          padding: 1rem 2rem;
+          border-radius: 50px;
+          transition: all 250ms ease-in;
+        }
+
+        a:hover {
+          background-color: white;
+          padding: 1rem 2rem;
+          border-radius: 50px;
+          transition: all 250ms ease-in;
+          color: $header-blue;
+        }
+      }
+
+      .hamburger {
+        display: none;
+      }
+    }
+
+    .hero {
+      padding-block: 6rem 12rem;
+      background-image: url("../images/desktop/image-header.jpg");
+
+      h1::after {
+        background-size: 3%;
+      }
+    }
+  }
+
   main {
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      "transformyourbrand transformyourbrand"
+      "standout standout"
+      "graphics photography"
+      "testimonials testimonials"
+      "squarepics squarepics";
+
     section {
-      .testimonials {
+      .brand-text,
+      .stand-text {
+        padding: 24%;
+      }
+
+      img {
+        display: block;
+      }
+
+      h3 {
+        font-weight: 900;
+      }
+
+      &.transform-your-brand {
+        text-align: left;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "brandtext brandpic";
+
+        .brand-pic {
+          grid-area: brandpic;
+        }
+
+        .brand-text {
+          grid-area: brandtext;
+        }
+
+        h3 {
+          text-align: left;
+        }
+      }
+
+      &.stand-out {
+        text-align: left;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% auto;
+
+        h3 {
+          text-align: left;
+        }
+      }
+
+      &.testimonials {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 2;
 
@@ -10,7 +106,7 @@
         }
       }
 
-      .squares {
+      &.squarepics {
         grid-template-columns: repeat(4, 1fr);
       }
     }
