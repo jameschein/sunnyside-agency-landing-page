@@ -1,0 +1,277 @@
+@import "config";
+
+$text-wob: #f4f4f4;
+$body-text-color: #30363f;
+$link-hover-color: #f6d208;
+$header-blue: #3cbeff;
+$footer-green: #91d4c5;
+
+$font-body: "Barlow", sans-serif;
+$font-headers: "Fraunces", serif;
+
+%section {
+  background-color: $text-wob;
+  padding: 12%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 100%;
+}
+
+%readmore {
+  text-decoration: none;
+  color: $body-text-color;
+  position: relative;
+  font-family: "Fraunces", display;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 4;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0.9rem;
+    left: 50%;
+    opacity: 0.75;
+    height: 5px;
+    background-color: #f6d208;
+    border-radius: 10px;
+    width: 0%;
+    transform: translateX(-50%);
+    transition: width 250ms;
+
+    transform-origin: 0 center;
+  }
+
+  &:hover::after {
+    width: 110%;
+    transition: width 250ms;
+  }
+}
+
+section {
+  a {
+    @extend %readmore;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+:root {
+  --header-blue: #3cbeff;
+  --section-header-blue: #30363f;
+  --text-wob: #fbfeff;
+  --body-text-color: #908d9b;
+  --footer-bgd: #91d4c5;
+  --footer-text: #307364;
+  --body: "Barlow", sans-serif;
+  --headers: "Fraunces", serif;
+}
+
+body {
+  font-size: 100%;
+  font-family: $font-body;
+  color: $body-text-color;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-headers;
+  text-align: center;
+}
+
+h3 {
+}
+
+.wrapper {
+  background-color: $header-blue;
+  width: 100%;
+}
+
+nav {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    a {
+      color: $footer-green;
+    }
+  }
+}
+
+header {
+  nav {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      text-transform: uppercase;
+      color: $text-wob;
+
+      a:link,
+      a:visited {
+        color: $text-wob;
+      }
+    }
+
+    .hamburger {
+      border: none;
+      background-color: transparent;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .hamburger .line {
+      margin-bottom: 4px;
+      width: 30px;
+      height: 2px;
+      background-color: $text-wob;
+    }
+  }
+
+  .hero {
+    padding-block: 6rem;
+    background-image: url("../images/mobile/image-header.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+
+    h1 {
+      font-size: 2.75rem;
+      text-transform: uppercase;
+      color: $text-wob;
+      margin-bottom: 1rem;
+      letter-spacing: 5px;
+      text-align: center;
+      line-height: 1.125;
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      background-image: url("../images/icon-arrow-down.svg");
+      background-size: 9%;
+      background-repeat: no-repeat;
+      background-position: 50% 2rem;
+      padding-top: 15rem;
+    }
+  }
+}
+
+main {
+  section {
+    @extend %section;
+
+    &.transform-your-brand {
+      background-image: url("../images/mobile/image-transform.jpg");
+
+      p {
+        color: lighten($body-text-color, 40%);
+      }
+    }
+
+    &.stand-out {
+      background-image: url("../images/mobile/image-stand-out.jpg");
+
+      p {
+        color: lighten($body-text-color, 40%);
+      }
+    }
+
+    &.graphics {
+      background-image: url("../images/mobile/image-graphic-design.jpg");
+      background-size: cover;
+    }
+
+    &.photography {
+      background-image: url("../images/mobile/image-photography.jpg");
+      background-size: cover;
+    }
+
+    &.testimonials {
+      padding-top: 1rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: $body-text-color;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .squares {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    padding: 0;
+    margin: 0;
+    background-image: none;
+    gap: 0;
+
+    .square {
+      padding: 0;
+      margin: 0;
+      line-height: 0;
+    }
+
+    .square img {
+      width: 100%;
+      object-fit: cover;
+      object-position: 50%;
+      padding: 0;
+    }
+  }
+}
+
+footer {
+  @extend %section;
+  @include set-background($footer-green);
+
+  color: darken($footer-green, 50%);
+  padding: 3rem 0;
+
+  nav {
+    .logotype {
+      width: 186px;
+      margin-block: 2rem 3rem;
+    }
+
+    &.socials ul {
+      justify-content: center;
+      gap: 2rem;
+      margin-block: 6rem;
+    }
+
+    a {
+      color: darken($footer-green, 30%);
+    }
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: lighten($footer-green, 50%);
+  }
+}

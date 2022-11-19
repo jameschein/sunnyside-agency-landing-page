@@ -18,6 +18,8 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
       rel="stylesheet" />
 
+    <script src="app.js"></script>
+
     <title>Frontend Mentor | Sunnyside agency landing page</title>
   </head>
 
@@ -29,23 +31,23 @@
             <img src="images/logo.svg" alt="Sunnyside Logo" class="logotype" />
           </a>
 
+          <button class="hamburger">
+            <div class="line" id="line1"></div>
+            <div class="line" id="line1"></div>
+            <div class="line" id="line1"></div>
+          </button>
+
           <ul>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
-
-          <div class="hamburger">
-            <div class="line" id="line1"></div>
-            <div class="line" id="line1"></div>
-            <div class="line" id="line1"></div>
-          </div>
         </nav>
 
         <section class="hero">
           <h1>
-            <span>We are</span>
+            We are
             <span>creatives</span>
           </h1>
         </section>
@@ -86,7 +88,7 @@
           </p>
         </section>
 
-        <section class="Photography">
+        <section class="photography">
           <h3>Photography</h3>
 
           <p>
@@ -122,11 +124,24 @@
             <cite>Jennie F. Business Owner</cite>
           </blockquote>
         </section>
+
+        <section class="squares" aria-hidden>
+            <div class="square"><img src="images/mobile/image-gallery-milkbottles.jpg" alt=""></div>
+            <div class="square"><img src="images/mobile/image-gallery-orange.jpg" alt=""></div>
+            <div class="square"><img src="images/mobile/image-gallery-cone.jpg" alt=""></div>
+            <div class="square"><img src="images/mobile/image-gallery-sugar-cubes.jpg" alt=""></div>
+        </section>
+        </section>
+        </section>
       </main>
 
       <footer>
-        <h2 class="logotype">Sunnyside</h2>
+
         <nav class="footer-nav">
+          <a href="#">
+            <img src="images/logo-footer.svg" alt="logotype" class="logotype">
+          </a>
+
           <ul>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
@@ -136,10 +151,10 @@
 
         <nav class="socials">
           <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Pinterest</a></li>
+            <li><a href="#"><img src="images/icon-facebook.svg" alt="facebook"></a></li>
+            <li><a href="#"><img src="images/icon-instagram.svg" alt="instagram"></a></li>
+            <li><a href="#"><img src="images/icon-pinterest.svg" alt="pinterest"></a></li>
+            <li><a href="#"><img src="images/icon-twitter.svg" alt="twitter"></a></li>
           </ul>
         </nav>
 
@@ -148,9 +163,9 @@
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
             Frontend Mentor
           </a>
-          . Coded by
-          <a href="#">Your Name Here</a>
-          .
+          Coded by
+          <a href="https://schein.co.uk">Schein</a>
+          
         </section>
       </footer>
     </div>
