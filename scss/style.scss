@@ -305,7 +305,7 @@ main {
 
 footer {
   @extend %section;
-  @include set-background($footer-green);
+  background-color: $footer-green;
 
   color: darken($footer-green, 30%);
   padding: 3rem 0;
