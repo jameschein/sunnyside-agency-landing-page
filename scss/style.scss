@@ -1,5 +1,4 @@
-@use "config";
-@use "desktop";
+@import "config";
 
 $text-wob: #f4f4f4;
 $body-text-color: #30363f;
@@ -12,10 +11,8 @@ $font-headers: "Fraunces", serif;
 
 %section {
   background-color: $text-wob;
-  padding: 12%;
   background-size: contain;
   background-repeat: no-repeat;
-  padding-top: 100%;
 }
 
 %readmore {
@@ -180,36 +177,61 @@ header {
 }
 
 main {
+  display: grid;
+  grid-template-columns: repeat (2, 1fr);
+  grid-template-areas:
+    "transformyourbrand transformyourbrand"
+    "standout standout"
+    "graphics graphics"
+    "photography photography"
+    "testimonials testimonials"
+    "squares squares";
+
   section {
     @extend %section;
 
-    &.transform-your-brand {
-      background-image: url("../images/mobile/image-transform.jpg");
+    figure {
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
 
+    .text {
+      padding: 9%;
       p {
         color: lighten($body-text-color, 40%);
       }
+    }
+
+    &.bgdimg {
+      background-size: cover;
+      padding-block: 100% 10%;
+      padding-inline: 9%;
+    }
+
+    &.transform-your-brand {
+      grid-area: transformyourbrand;
     }
 
     &.stand-out {
-      background-image: url("../images/mobile/image-stand-out.jpg");
-
-      p {
-        color: lighten($body-text-color, 40%);
-      }
+      grid-area: standout;
     }
 
     &.graphics {
+      grid-area: graphics;
       background-image: url("../images/mobile/image-graphic-design.jpg");
-      background-size: cover;
     }
 
     &.photography {
+      grid-area: photography;
       background-image: url("../images/mobile/image-photography.jpg");
-      background-size: cover;
     }
 
     &.testimonials {
+      grid-area: testimonials;
+      display: grid;
+      grid-template-columns: 100%;
       padding-top: 1rem;
       padding-inline: 1%;
 
@@ -243,7 +265,7 @@ main {
         }
 
         blockquote {
-          & * {
+          * {
             padding-block: 0.5rem;
           }
 
@@ -255,13 +277,13 @@ main {
             span {
               display: block;
 
-              &.name {
+              .name {
                 font-family: $font-headers;
                 font-size: 1.5rem;
                 color: lighten($body-text-color, 0%);
               }
 
-              &.job {
+              .job {
                 color: lighten($body-text-color, 50%);
                 padding-block: 0rem;
               }
@@ -271,34 +293,35 @@ main {
       }
     }
 
+    &.squares {
+      grid-area: squares;
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0;
+      margin: 0;
+      background-image: none;
+      gap: 0;
+
+      .square {
+        padding: 0;
+        margin: 0;
+        line-height: 0;
+      }
+
+      .square img {
+        width: 100%;
+        object-fit: cover;
+        object-position: 50%;
+        padding: 0;
+      }
+    }
+
     h3 {
       font-size: 2rem;
       color: $body-text-color;
       line-height: 1.25;
       margin-bottom: 1rem;
-    }
-  }
-
-  .squares {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 50% 50%;
-    padding: 0;
-    margin: 0;
-    background-image: none;
-    gap: 0;
-
-    .square {
-      padding: 0;
-      margin: 0;
-      line-height: 0;
-    }
-
-    .square img {
-      width: 100%;
-      object-fit: cover;
-      object-position: 50%;
-      padding: 0;
     }
   }
 }
@@ -316,7 +339,7 @@ footer {
       margin-block: 2rem 3rem;
     }
 
-    &.socials ul {
+    .socials ul {
       justify-content: center;
       gap: 2rem;
       margin-block: 6rem;
@@ -361,3 +384,5 @@ footer {
     }
   }
 }
+
+@import "desktop";

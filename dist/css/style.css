@@ -1,9 +1,7 @@
 footer, main section {
   background-color: #f4f4f4;
-  padding: 12%;
   background-size: contain;
   background-repeat: no-repeat;
-  padding-top: 100%;
 }
 
 main section a {
@@ -141,27 +139,44 @@ header .hero h1::after {
   padding-top: 15rem;
 }
 
-main section.transform-your-brand {
-  background-image: url("../images/mobile/image-transform.jpg");
+main {
+  display: grid;
+  grid-template-columns: repeat 2, 1fr;
+  grid-template-areas: "transformyourbrand transformyourbrand" "standout standout" "graphics graphics" "photography photography" "testimonials testimonials" "squares squares";
 }
-main section.transform-your-brand p {
+main section figure img {
+  width: 100%;
+  object-fit: contain;
+}
+main section .text {
+  padding: 9%;
+}
+main section .text p {
   color: #909bab;
+}
+main section.bgdimg {
+  background-size: cover;
+  padding-block: 100% 10%;
+  padding-inline: 9%;
+}
+main section.transform-your-brand {
+  grid-area: transformyourbrand;
 }
 main section.stand-out {
-  background-image: url("../images/mobile/image-stand-out.jpg");
-}
-main section.stand-out p {
-  color: #909bab;
+  grid-area: standout;
 }
 main section.graphics {
+  grid-area: graphics;
   background-image: url("../images/mobile/image-graphic-design.jpg");
-  background-size: cover;
 }
 main section.photography {
+  grid-area: photography;
   background-image: url("../images/mobile/image-photography.jpg");
-  background-size: cover;
 }
 main section.testimonials {
+  grid-area: testimonials;
+  display: grid;
+  grid-template-columns: 100%;
   padding-top: 1rem;
   padding-inline: 1%;
 }
@@ -203,40 +218,41 @@ main section.testimonials .testimonial blockquote cite {
 main section.testimonials .testimonial blockquote cite span {
   display: block;
 }
-main section.testimonials .testimonial blockquote cite span.name {
+main section.testimonials .testimonial blockquote cite span .name {
   font-family: "Fraunces", serif;
   font-size: 1.5rem;
   color: #30363f;
 }
-main section.testimonials .testimonial blockquote cite span.job {
+main section.testimonials .testimonial blockquote cite span .job {
   color: #adb5c1;
   padding-block: 0rem;
+}
+main section.squares {
+  grid-area: squares;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0;
+  margin: 0;
+  background-image: none;
+  gap: 0;
+}
+main section.squares .square {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+main section.squares .square img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 50%;
+  padding: 0;
 }
 main section h3 {
   font-size: 2rem;
   color: #30363f;
   line-height: 1.25;
   margin-bottom: 1rem;
-}
-main .squares {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 50% 50%;
-  padding: 0;
-  margin: 0;
-  background-image: none;
-  gap: 0;
-}
-main .squares .square {
-  padding: 0;
-  margin: 0;
-  line-height: 0;
-}
-main .squares .square img {
-  width: 100%;
-  object-fit: cover;
-  object-position: 50%;
-  padding: 0;
 }
 
 footer {
@@ -248,7 +264,7 @@ footer nav .logotype {
   width: 186px;
   margin-block: 2rem 3rem;
 }
-footer nav.socials ul {
+footer nav .socials ul {
   justify-content: center;
   gap: 2rem;
   margin-block: 6rem;
@@ -285,6 +301,19 @@ footer .attribution a {
   font-size: 1.25rem;
   line-height: 1.75;
   letter-spacing: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  main section .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2;
+  }
+  main section .testimonials h3 {
+    grid-column: 1/4;
+  }
+  main section .squares {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
