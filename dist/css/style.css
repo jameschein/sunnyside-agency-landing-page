@@ -1,5 +1,5 @@
 footer, main section {
-  background-color: #f4f4f4;
+  background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -35,7 +35,7 @@ main section a::after {
   width: 0%;
   transition: width 250ms;
 }
-main section a:hover::after {
+main section a:hover::after, main section a:focus::after {
   width: 110%;
   transition: width 250ms;
 }
@@ -46,6 +46,10 @@ main section a:hover::after {
   list-style: none;
   font-size: 1em;
   text-decoration: none;
+}
+
+a {
+  outline: 0;
 }
 
 body {
@@ -91,11 +95,15 @@ header .main-nav ul {
   flex-direction: column;
   gap: 1rem;
   text-transform: uppercase;
-  color: #f4f4f4;
+  color: white;
 }
 header .main-nav ul a:link,
 header .main-nav ul a:visited {
-  color: #f4f4f4;
+  color: white;
+}
+header .main-nav ul a:hover,
+header .main-nav ul a:focus {
+  color: #d5f1ff;
 }
 header .main-nav .hamburger {
   border: none;
@@ -108,7 +116,7 @@ header .main-nav .hamburger .line {
   margin-bottom: 4px;
   width: 30px;
   height: 2px;
-  background-color: #f4f4f4;
+  background-color: white;
 }
 header .hero {
   padding-block: 6rem;
@@ -120,7 +128,7 @@ header .hero {
 header .hero h1 {
   font-size: 2.75rem;
   text-transform: uppercase;
-  color: #f4f4f4;
+  color: white;
   margin-bottom: 1rem;
   letter-spacing: 5px;
   text-align: center;
@@ -163,7 +171,7 @@ main section figure {
 }
 main section figure img {
   width: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
 main section .text {
   padding: 15%;
@@ -291,7 +299,7 @@ footer nav a {
   font-size: 1.25rem;
 }
 footer .attribution {
-  color: #f4f4f4;
+  color: white;
   font-size: 1rem;
   text-align: center;
   padding-block: 1rem;
@@ -331,6 +339,9 @@ footer .socials a {
     justify-content: space-between;
     align-items: center;
   }
+  header .main-nav .logotype {
+    width: 150px;
+  }
   header .main-nav ul {
     display: flex;
     flex-direction: row;
@@ -348,7 +359,7 @@ footer .socials a {
     text-transform: uppercase;
     transition: all 200ms ease-in;
   }
-  header .main-nav ul li:last-child a:hover {
+  header .main-nav ul li:last-child a:hover, header .main-nav ul li:last-child a:focus {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -451,8 +462,9 @@ footer .socials a {
   footer a {
     transition: all 250ms ease-in-out;
   }
-  footer a:hover {
-    color: #f4f4f4;
+  footer a:hover,
+  footer a:focus {
+    color: white;
     filter: 100%;
     transition: all 250ms ease-in-out;
   }

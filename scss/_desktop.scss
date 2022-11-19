@@ -6,6 +6,10 @@
       justify-content: space-between;
       align-items: center;
 
+      .logotype {
+        width: 150px;
+      }
+
       ul {
         display: flex;
         flex-direction: row;
@@ -25,7 +29,8 @@
             transition: all 200ms ease-in;
           }
 
-          &:last-child a:hover {
+          &:last-child a:hover,
+          &:last-child a:focus {
             background-color: rgba(255, 255, 255, 0.5);
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -171,7 +176,8 @@
       transition: all 250ms ease-in-out;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       color: $text-wob;
       filter: (100%);
       transition: all 250ms ease-in-out;

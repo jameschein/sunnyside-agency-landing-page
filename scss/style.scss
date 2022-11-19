@@ -1,6 +1,8 @@
 @import "config";
 
-$text-wob: #f4f4f4;
+// $text-wob: #f4f4f4;
+$text-wob: white;
+
 $body-text-color: #30363f;
 $link-hover-color: #f6d208;
 $header-blue: #3cbeff;
@@ -52,7 +54,8 @@ $font-headers: "Fraunces", serif;
     transition: width 250ms;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &:focus::after {
     width: 110%;
     transition: width 250ms;
   }
@@ -64,6 +67,10 @@ $font-headers: "Fraunces", serif;
   list-style: none;
   font-size: 1em;
   text-decoration: none;
+}
+
+a {
+  outline: 0;
 }
 
 body {
@@ -121,6 +128,11 @@ header {
       a:link,
       a:visited {
         color: $text-wob;
+      }
+
+      a:hover,
+      a:focus {
+        color: lighten($header-blue, 30%);
       }
     }
 
@@ -217,7 +229,7 @@ main {
 
       img {
         width: 100%;
-        object-fit: contain;
+        object-fit: fill;
       }
     }
 
