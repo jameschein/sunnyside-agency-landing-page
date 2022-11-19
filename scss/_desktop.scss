@@ -2,29 +2,35 @@
   header {
     padding: 1% 3% 0;
 
-    nav {
+    .main-nav {
       justify-content: space-between;
+      align-items: center;
 
       ul {
         display: flex;
         flex-direction: row;
         justify-content: end;
-        gap: 6rem;
+        align-items: center;
+        gap: 3rem;
         text-transform: capitalize;
 
-        a {
-          background-color: transparent;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          transition: all 250ms ease-in;
-        }
+        li {
+          &:last-child a {
+            background-color: white;
+            color: $body-text-color;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: $font-headers;
+            text-transform: uppercase;
+            transition: all 200ms ease-in;
+          }
 
-        a:hover {
-          background-color: white;
-          padding: 1rem 2rem;
-          border-radius: 50px;
-          transition: all 250ms ease-in;
-          color: $header-blue;
+          &:last-child a:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 200ms ease-in;
+          }
         }
       }
 
@@ -53,9 +59,11 @@
       "squarepics squarepics";
 
     section {
-      .brand-text,
-      .stand-text {
-        padding: 24%;
+      background-size: cover;
+      background-position: 50%;
+
+      .text {
+        padding: 21% 15% 18% 18%;
       }
 
       img {
@@ -64,13 +72,26 @@
 
       h3 {
         font-weight: 900;
+        margin-bottom: 2rem;
       }
 
-      &.transform-your-brand {
+      &.promise {
         text-align: left;
         width: 100%;
         display: grid;
         grid-template-columns: 50% auto;
+
+        h3 {
+          text-align: left;
+          font-size: 3rem;
+        }
+
+        p {
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      &.transform-your-brand {
         grid-template-areas: "brandtext brandpic";
 
         .brand-pic {
@@ -80,26 +101,59 @@
         .brand-text {
           grid-area: brandtext;
         }
-
-        h3 {
-          text-align: left;
-        }
       }
 
       &.stand-out {
-        text-align: left;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 50% auto;
+      }
 
-        h3 {
-          text-align: left;
-        }
+      &.services {
+        padding-top: 27rem;
+        padding-inline: 24%;
+      }
+
+      &.graphics {
+        background-image: url("../images/desktop/image-graphic-design.jpg");
+      }
+
+      &.photography {
+        background-image: url("../images/desktop/image-photography.jpg");
       }
 
       &.testimonials {
+        padding: 7.5% 12% 9%;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 2;
+        gap: 2rem;
+
+        .testimonial {
+          padding: 0;
+
+          figure {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            margin-block: 0rem 3rem;
+          }
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+
+          blockquote {
+            p {
+              margin-bottom: 2rem;
+            }
+            cite {
+              span.name {
+                font-size: 1.25rem;
+                margin-bottom: 0rem;
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
 
         h3 {
           grid-column: 1/4;
@@ -108,6 +162,36 @@
 
       &.squarepics {
         grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  footer {
+    a {
+      transition: all 250ms ease-in-out;
+    }
+
+    a:hover {
+      color: $text-wob;
+      filter: (100%);
+      transition: all 250ms ease-in-out;
+    }
+
+    nav {
+      ul {
+        justify-content: center;
+        gap: 4.5rem;
+      }
+    }
+
+    .attribution {
+      span {
+        display: inline;
+        padding-inline: 1rem;
+
+        &.coded-byline img {
+          width: 80px;
+        }
       }
     }
   }

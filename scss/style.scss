@@ -5,6 +5,8 @@ $body-text-color: #30363f;
 $link-hover-color: #f6d208;
 $header-blue: #3cbeff;
 $footer-green: #91d4c5;
+$sectionlink-stand: #fe7d6d;
+$sectionlink-transform: #f6d208;
 
 $font-body: "Barlow", sans-serif;
 $font-headers: "Fraunces", serif;
@@ -13,6 +15,19 @@ $font-headers: "Fraunces", serif;
   background-color: $text-wob;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+%baselink {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  opacity: 0.75;
+  height: 5px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transform-origin: 0 center;
 }
 
 %readmore {
@@ -24,21 +39,17 @@ $font-headers: "Fraunces", serif;
   text-transform: uppercase;
   line-height: 4;
 
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0.9rem;
-    left: 50%;
-    opacity: 0.75;
-    height: 5px;
-    background-color: #f6d208;
-    border-radius: 10px;
-    width: 0%;
-    transform: translateX(-50%);
-    transition: width 250ms;
+  &::before {
+    @extend %baselink;
+    background-color: $sectionlink-stand;
+    width: 110%;
+  }
 
-    transform-origin: 0 center;
+  &::after {
+    @extend %baselink;
+    background-color: $sectionlink-transform;
+    width: 0%;
+    transition: width 250ms;
   }
 
   &:hover::after {
@@ -53,17 +64,6 @@ $font-headers: "Fraunces", serif;
   list-style: none;
   font-size: 1em;
   text-decoration: none;
-}
-
-:root {
-  --header-blue: #3cbeff;
-  --section-header-blue: #30363f;
-  --text-wob: #fbfeff;
-  --body-text-color: #908d9b;
-  --footer-bgd: #91d4c5;
-  --footer-text: #307364;
-  --body: "Barlow", sans-serif;
-  --headers: "Fraunces", serif;
 }
 
 body {
@@ -106,7 +106,7 @@ nav {
 }
 
 header {
-  nav {
+  .main-nav {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -188,6 +188,30 @@ main {
       @extend %readmore;
     }
 
+    &.transform-your-brand {
+      a::before {
+        opacity: 0.3;
+        background-color: $sectionlink-transform;
+      }
+
+      a::after {
+        opacity: 1;
+        background-color: $sectionlink-transform;
+      }
+    }
+
+    &.stand-out {
+      a:before {
+        opacity: 0.5;
+        background-color: $sectionlink-stand;
+      }
+
+      a:after {
+        opacity: 1;
+        background-color: $sectionlink-stand;
+      }
+    }
+
     figure {
       width: 100%;
 
@@ -198,7 +222,8 @@ main {
     }
 
     .text {
-      padding: 9%;
+      padding: 15%;
+
       p {
         color: lighten($body-text-color, 40%);
       }
@@ -232,7 +257,7 @@ main {
       grid-area: testimonials;
       display: grid;
       grid-template-columns: 100%;
-      padding-top: 1rem;
+      padding-block: 1rem 5rem;
       padding-inline: 1%;
 
       h3 {
@@ -382,6 +407,10 @@ footer {
       line-height: 1.75;
       letter-spacing: 0px;
     }
+  }
+
+  .socials a {
+    color: darken($footer-green, 40%);
   }
 }
 
