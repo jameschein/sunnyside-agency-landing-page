@@ -163,6 +163,54 @@ main section.photography {
 }
 main section.testimonials {
   padding-top: 1rem;
+  padding-inline: 1%;
+}
+main section.testimonials h3 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 5px;
+  color: #adb5c1;
+  padding-block: 2rem 2rem;
+  font-weight: 600;
+}
+main section.testimonials .testimonial {
+  padding: 2rem 12%;
+  line-height: 2;
+}
+main section.testimonials .testimonial figure {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin-inline: auto;
+  margin-block: 1rem;
+}
+main section.testimonials .testimonial figure img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+main section.testimonials .testimonial blockquote {
+  color: #5c6879;
+}
+main section.testimonials .testimonial blockquote * {
+  padding-block: 0.5rem;
+}
+main section.testimonials .testimonial blockquote cite {
+  font-style: normal;
+}
+main section.testimonials .testimonial blockquote cite span {
+  display: block;
+}
+main section.testimonials .testimonial blockquote cite span.name {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  color: #30363f;
+}
+main section.testimonials .testimonial blockquote cite span.job {
+  color: #adb5c1;
+  padding-block: 0rem;
 }
 main section h3 {
   font-size: 2rem;
@@ -208,6 +256,7 @@ footer nav.socials ul {
 }
 footer nav a {
   color: #39937f;
+  font-size: 1.25rem;
 }
 footer .attribution {
   font-size: 11px;
