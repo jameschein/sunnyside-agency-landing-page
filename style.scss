@@ -62,12 +62,12 @@ nav {
   padding-block: 6rem;
   padding-inline: 6rem;
   background-image: url("../images/mobile/image-header.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     color: var(--text-wob);
     margin-bottom: 1rem;
