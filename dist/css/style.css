@@ -91,19 +91,57 @@ header .main-nav {
   justify-content: space-between;
 }
 header .main-nav ul {
-  display: none;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  background-color: white;
+  color: #3cbeff;
+  width: 90%;
+  margin-left: -45%;
+  padding-block: 3rem;
+}
+header .main-nav ul::before {
+  content: "";
+  position: absolute;
+  display: block;
+  right: 0;
+  top: -2rem;
+  border-color: transparent;
+  border-left: 50px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 50px solid white;
+  height: 0;
+  width: 0;
+}
+header .main-nav ul li {
+  margin-block: 1rem;
+}
+header .main-nav ul li a:link,
+header .main-nav ul li a:visited {
+  color: grey;
+  letter-spacing: 1px;
+}
+header .main-nav ul li a:hover,
+header .main-nav ul li a:focus {
+  color: #b3b3b3;
+}
+header .main-nav ul li:last-child a {
+  background-color: #f6d208;
+  color: #30363f;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: "Fraunces", serif;
   text-transform: uppercase;
-  color: white;
+  transition: all 200ms ease-in;
 }
-header .main-nav ul a:link,
-header .main-nav ul a:visited {
-  color: white;
-}
-header .main-nav ul a:hover,
-header .main-nav ul a:focus {
-  color: #d5f1ff;
+header .main-nav ul li:last-child a:hover, header .main-nav ul li:last-child a:focus {
+  background-color: #fae46a;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  transition: all 200ms ease-in;
 }
 header .main-nav .hamburger {
   border: none;
@@ -113,10 +151,11 @@ header .main-nav .hamburger {
   cursor: pointer;
 }
 header .main-nav .hamburger .line {
-  margin-bottom: 4px;
+  margin-block: 5px;
   width: 30px;
-  height: 2px;
+  height: 3px;
   background-color: white;
+  border-radius: 10px;
 }
 header .hero {
   padding-block: 6rem;
@@ -343,12 +382,29 @@ footer .socials a {
     width: 150px;
   }
   header .main-nav ul {
+    position: static;
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-items: center;
     gap: 3rem;
     text-transform: capitalize;
+    background-color: transparent;
+    margin-left: 0;
+    width: max-content;
+  }
+  header .main-nav ul::before {
+    content: "";
+    display: none;
+  }
+  header .main-nav ul li a:link,
+  header .main-nav ul li a:visited {
+    color: white;
+  }
+  header .main-nav ul li a:hover,
+  header .main-nav ul li a:focus {
+    color: #d5f1ff;
   }
   header .main-nav ul li:last-child a {
     background-color: white;
