@@ -22,7 +22,7 @@
       src="https://kit.fontawesome.com/98fc27b2a0.js"
       crossorigin="anonymous"></script>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 
     <title>
       Frontend Mentor | James' Sunnyside Agency landing Page Solution
@@ -37,13 +37,15 @@
             <img src="images/logo.svg" alt="Sunnyside Logo" class="logotype" />
           </a>
 
-          <button class="hamburger">
-            <div class="line" id="line1"></div>
-            <div class="line" id="line1"></div>
-            <div class="line" id="line1"></div>
-          </button>
+          <input type="checkbox" class="hamburger-control" id="toggle" />
 
-          <ul>
+          <label for="toggle" class="hamburger">
+            <div class="line" id="line1"></div>
+            <div class="line" id="line1"></div>
+            <div class="line" id="line1"></div>
+          </label>
+
+          <ul class="main-menu hide">
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Projects</a></li>

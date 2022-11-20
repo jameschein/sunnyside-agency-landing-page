@@ -73,6 +73,7 @@ h6 {
 .wrapper {
   background-color: #3cbeff;
   width: 100%;
+  overflow: hidden;
 }
 
 nav ul {
@@ -89,8 +90,31 @@ header .main-nav {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
-header .main-nav ul {
+header .main-nav .hamburger-control,
+header .main-nav .hamburger-control ~ label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: transparent;
+  z-index: 10;
+  opacity: 0;
+  cursor: pointer;
+}
+header .main-nav .hamburger-control.menu-active,
+header .main-nav .hamburger-control ~ label.menu-active {
+  width: 100vw;
+  height: 600px;
+}
+header .main-nav .hamburger-control ~ label {
+  opacity: 1;
+  z-index: 9;
+}
+header .main-nav .main-menu {
   position: absolute;
   top: 6rem;
   left: 50%;
@@ -102,8 +126,17 @@ header .main-nav ul {
   width: 90%;
   margin-left: -45%;
   padding-block: 3rem;
+  z-index: 20;
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
 }
-header .main-nav ul::before {
+header .main-nav .main-menu.hide {
+  opacity: 0;
+  visibility: hidden;
+  top: -24rem;
+  transition: all 0.25s ease-in-out;
+}
+header .main-nav .main-menu::before {
   content: "";
   position: absolute;
   display: block;
@@ -116,19 +149,19 @@ header .main-nav ul::before {
   height: 0;
   width: 0;
 }
-header .main-nav ul li {
+header .main-nav .main-menu li {
   margin-block: 1rem;
 }
-header .main-nav ul li a:link,
-header .main-nav ul li a:visited {
+header .main-nav .main-menu li a:link,
+header .main-nav .main-menu li a:visited {
   color: grey;
   letter-spacing: 1px;
 }
-header .main-nav ul li a:hover,
-header .main-nav ul li a:focus {
+header .main-nav .main-menu li a:hover,
+header .main-nav .main-menu li a:focus {
   color: #b3b3b3;
 }
-header .main-nav ul li:last-child a {
+header .main-nav .main-menu li:last-child a {
   background-color: #f6d208;
   color: #30363f;
   padding: 1rem 2rem;
@@ -137,7 +170,7 @@ header .main-nav ul li:last-child a {
   text-transform: uppercase;
   transition: all 200ms ease-in;
 }
-header .main-nav ul li:last-child a:hover, header .main-nav ul li:last-child a:focus {
+header .main-nav .main-menu li:last-child a:hover, header .main-nav .main-menu li:last-child a:focus {
   background-color: #fae46a;
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -328,6 +361,11 @@ footer nav .logotype {
   width: 186px;
   margin-block: 2rem 3rem;
 }
+footer nav a:hover,
+footer nav a:focus {
+  color: white;
+  transition: all 250ms ease-in-out;
+}
 footer nav.socials ul {
   justify-content: center;
   gap: 2rem;
@@ -484,7 +522,7 @@ footer .socials a {
   main section.testimonials {
     padding: 7.5% 12% 9%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 2;
+    grid-template-rows: 1fr 1fr;
     gap: 2rem;
   }
   main section.testimonials .testimonial {
@@ -516,12 +554,6 @@ footer .socials a {
     grid-template-columns: repeat(4, 1fr);
   }
   footer a {
-    transition: all 250ms ease-in-out;
-  }
-  footer a:hover,
-  footer a:focus {
-    color: white;
-    filter: 100%;
     transition: all 250ms ease-in-out;
   }
   footer nav ul {

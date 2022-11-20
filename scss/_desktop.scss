@@ -147,7 +147,7 @@
       &.testimonials {
         padding: 7.5% 12% 9%;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 2;
+        grid-template-rows: 1fr 1fr;
         gap: 2rem;
 
         .testimonial {
@@ -193,13 +193,6 @@
 
   footer {
     a {
-      transition: all 250ms ease-in-out;
-    }
-
-    a:hover,
-    a:focus {
-      color: $text-wob;
-      filter: (100%);
       transition: all 250ms ease-in-out;
     }
 

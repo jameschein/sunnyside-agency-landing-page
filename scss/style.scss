@@ -97,6 +97,7 @@ h3 {
 .wrapper {
   background-color: $header-blue;
   width: 100%;
+  overflow: hidden;
 }
 
 nav {
@@ -117,8 +118,47 @@ header {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
-    ul {
+    .hamburger-control,
+    .hamburger-control ~ label {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      color: transparent;
+      z-index: 10;
+      opacity: 0;
+      cursor: pointer;
+
+      &.menu-active {
+        width: 100vw;
+        height: 600px;
+      }
+    }
+
+    .hamburger-control ~ label {
+      opacity: 1;
+      z-index: 9;
+    }
+
+    // .hamburger-control:checked {
+    //   width: 100vw;
+    //   height: 600px;
+    // }
+
+    // .hamburger-control:checked ~ .main-menu {
+    //   display: flex;
+    //   z-index: 20;
+    // }
+
+    // .hamburger-control ~ .main-menu {
+    //   display: none;
+    // }
+
+    .main-menu {
       position: absolute;
       top: 6rem;
       left: 50%;
@@ -130,6 +170,16 @@ header {
       width: 90%;
       margin-left: -45%;
       padding-block: 3rem;
+      z-index: 20;
+      opacity: 1;
+      transition: all 0.25s ease-in-out;
+
+      &.hide {
+        opacity: 0;
+        visibility: hidden;
+        top: -24rem;
+        transition: all 0.25s ease-in-out;
+      }
 
       &::before {
         content: "";
@@ -417,6 +467,12 @@ footer {
     .logotype {
       width: 186px;
       margin-block: 2rem 3rem;
+    }
+
+    a:hover,
+    a:focus {
+      color: $text-wob;
+      transition: all 250ms ease-in-out;
     }
 
     &.socials ul {
