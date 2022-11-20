@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainMenu = document.querySelector(".main-menu");
   const mainLinks = document.querySelectorAll(".main-menu a");
 
+  window.addEventListener("resize", () => {
+    mainMenu.classList.add("hide");
+  });
+
   hamburger.addEventListener("click", (e) => {
     mainMenu.classList.toggle("hide");
     e.target.classList.toggle("menu-active");
@@ -10,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mainLinks.forEach((mainLink) => {
     mainLink.addEventListener("click", () => {
-      mainMenu.classList.toggle("hide");
+      if (mainMenu.classList.contains("hide") != -1) {
+        mainMenu.classList.toggle("hide");
+      } else {
+        return false;
+      }
     });
   });
 });

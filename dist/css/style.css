@@ -213,7 +213,7 @@ header .hero h1::after {
   background-size: 9%;
   background-repeat: no-repeat;
   background-position: 50% 2rem;
-  padding-top: 15rem;
+  padding-top: 13.5rem;
 }
 
 main {
@@ -528,7 +528,7 @@ footer .socials a {
   main section.testimonials {
     padding: 7.5% 12% 9%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 30% 1fr;
     gap: 2rem;
   }
   main section.testimonials .testimonial {

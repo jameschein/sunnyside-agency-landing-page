@@ -154,7 +154,7 @@
       &.testimonials {
         padding: 7.5% 12% 9%;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 30% 1fr;
         gap: 2rem;
 
         .testimonial {
