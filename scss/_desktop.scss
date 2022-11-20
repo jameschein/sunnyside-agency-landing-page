@@ -10,7 +10,7 @@
         width: 150px;
       }
 
-      ul {
+      .main-menu {
         position: static;
         padding: 0;
         display: flex;
@@ -26,6 +26,13 @@
         &::before {
           content: "";
           display: none;
+        }
+
+        &.hide {
+          display: flex;
+          position: static;
+          visibility: visible;
+          opacity: 1;
         }
 
         li {

@@ -419,7 +419,7 @@ footer .socials a {
   header .main-nav .logotype {
     width: 150px;
   }
-  header .main-nav ul {
+  header .main-nav .main-menu {
     position: static;
     padding: 0;
     display: flex;
@@ -432,19 +432,25 @@ footer .socials a {
     margin-left: 0;
     width: max-content;
   }
-  header .main-nav ul::before {
+  header .main-nav .main-menu::before {
     content: "";
     display: none;
   }
-  header .main-nav ul li a:link,
-  header .main-nav ul li a:visited {
+  header .main-nav .main-menu.hide {
+    display: flex;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+  header .main-nav .main-menu li a:link,
+  header .main-nav .main-menu li a:visited {
     color: white;
   }
-  header .main-nav ul li a:hover,
-  header .main-nav ul li a:focus {
+  header .main-nav .main-menu li a:hover,
+  header .main-nav .main-menu li a:focus {
     color: #d5f1ff;
   }
-  header .main-nav ul li:last-child a {
+  header .main-nav .main-menu li:last-child a {
     background-color: white;
     color: #30363f;
     padding: 1rem 2rem;
@@ -453,7 +459,7 @@ footer .socials a {
     text-transform: uppercase;
     transition: all 200ms ease-in;
   }
-  header .main-nav ul li:last-child a:hover, header .main-nav ul li:last-child a:focus {
+  header .main-nav .main-menu li:last-child a:hover, header .main-nav .main-menu li:last-child a:focus {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 1rem 2rem;
     border-radius: 50px;
