@@ -69,8 +69,8 @@ $font-headers: "Fraunces", serif;
   text-decoration: none;
 }
 
-a {
-  outline: 0;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -79,6 +79,11 @@ body {
   color: $body-text-color;
   line-height: 1.5;
   text-align: center;
+  scroll-behavior: smooth;
+}
+
+a {
+  outline: 0;
 }
 
 h1,
