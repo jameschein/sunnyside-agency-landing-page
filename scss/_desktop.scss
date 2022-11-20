@@ -75,6 +75,11 @@
       padding-block: 7.5rem 16.5rem;
       background-image: url("../images/desktop/image-header.jpg");
 
+      h1 {
+        font-size: 3.5rem;
+        letter-spacing: 9px;
+      }
+
       h1::after {
         background-size: 3%;
         background-position: 50% 5rem;
