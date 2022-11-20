@@ -96,6 +96,10 @@ h6 {
   text-align: center;
 }
 
+h1 {
+  font-weight: 900;
+}
+
 h3 {
 }
 
@@ -370,8 +374,9 @@ main {
       padding-block: 1rem 5rem;
       padding-inline: 1%;
 
-      h3 {
+      h2 {
         text-transform: uppercase;
+        font-weight: 600;
         font-size: 1rem;
         letter-spacing: 5px;
         color: lighten($body-text-color, 50%);
